@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:my_weather/view/home_screen/widgets/header_home_screen.dart';
 import 'package:my_weather/view/home_screen/widgets/weather_widget.dart';
+import 'package:my_weather/view/home_screen/widgets/wind_rain_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(gradient: getLinearGradient(true)),
         child: Column(
-          children: [HeaderHomeScreen(), WeatherWidget()],
+          children: [HeaderHomeScreen(), WeatherWidget(), WindRainWidget()],
         ),
       ),
     );

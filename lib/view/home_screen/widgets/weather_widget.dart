@@ -16,7 +16,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
             Container(
                 height: 250,
                 width: 250,
-                child: Image.asset("assets/sol_nuvem.png")),
+                child: Image.asset("assets/sol_nuvem_sol.png")),
             Text("28°",
                 style: TextStyle(
                     fontSize: 50,
