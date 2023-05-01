@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:my_weather/provider/weather_provider.dart';
+import 'package:provider/provider.dart';
 
 class TodayWeatherWidget extends StatefulWidget {
   @override
@@ -9,60 +11,64 @@ class TodayWeatherWidget extends StatefulWidget {
 class _TodayWeatherWidgetState extends State<TodayWeatherWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 15,
-          ),
-          Container(
-            padding: EdgeInsets.all(20),
-            width: double.infinity,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Consumer<WeatherProvider>(
+      builder: (context, _weatherProvider, _) {
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                width: double.infinity,
+                child: Column(
                   children: [
-                    Text(
-                      "Today",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 25),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Today",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 25),
+                        ),
+                        Text(
+                          "Mar,9",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 25),
+                        )
+                      ],
                     ),
-                    Text(
-                      "Mar,9",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 25),
-                    )
+                    SizedBox(
+                      height: 35,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        getDayWeather(),
+                        getDayWeather(),
+                        getDayWeather(),
+                        getDayWeather(),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 35,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    getDayWeather(),
-                    getDayWeather(),
-                    getDayWeather(),
-                    getDayWeather(),
-                  ],
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-              ],
-            ),
-            decoration: BoxDecoration(
-                color: HexColor("#0c3888"),
-                borderRadius: BorderRadius.circular(20)),
+                decoration: BoxDecoration(
+                    color: HexColor("#0c3888"),
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
