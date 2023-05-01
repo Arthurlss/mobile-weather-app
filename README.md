@@ -43,7 +43,7 @@ Comentários:
 - O aplicativo pode ter 5 tipos diferentes de visual, dependendo da condição do tempo que vier na API. Como na explicação do desafio não ficou claro se a cor escura e clara era por causa do dia ou da noite ou se era por causa do clima, então peguei a lista de climas possiveis e transformei em cinco aparências possíveis, tudo depende das inforamções que vão vir da API.
 - No último widget onde mostra a previsão dos próximos dias, a API não mostra o tipo de clima dos proximo dias, por isso não tem como definir dinamicamente o tipo de figura que vai aparecer ali, portanto deixei uma nuvem fixa.
 - No widget que mostra o vento, não fica claro o que são os outros dois widget, não fica claro quais dados se quer ali, portanto coloquei umidade e probabilidade de chuva.
-- Todas as capitais brasileiras foram colocadas para se poder obter as informações que se deseja.
+
 
 
 Instalação
