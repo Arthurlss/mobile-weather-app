@@ -113,7 +113,7 @@ class Utils {
       case "clear_day":
         data["image"] = "assets/sol_nuvem_sol.png";
         data["secondColor"] = "#00BFFF";
-        data["secondColor"] = "#87CEFA";
+        data["color"] = "#87CEFA";
         break;
       case "none_day":
         data["image"] = "assets/sol_nuvem_sol.png";
@@ -154,6 +154,22 @@ class Utils {
     String city9 = "BeloHorizonte,MG";
     String city10 = "Natal,RN";
     String city11 = "PortoAlegre,RS";
+    String city12 = "RioBranco,AC";
+    String city13 = "Macapa,AP";
+    String city14 = "Manaus,AM";
+    String city15 = "Vitoria,ES";
+    String city16 = "Goiânia,GO";
+    String city17 = "SaoLuis,MA";
+    String city18 = "Cuiaba,MT";
+
+    String city20 = "Belem,PA";
+    String city21 = "JoãoPessoa,PB";
+    String city22 = "RiodeJaneiro,RJ";
+    String city23 = "PortoVelho,RO";
+    String city24 = "Florianpolis,SC";
+    String city25 = "SÃoPaulo,SP";
+    String city26 = "Aracaju,SE";
+    String city27 = "Palmas,TO";
 
     listCities.add(city1);
     listCities.add(city2);
@@ -166,6 +182,24 @@ class Utils {
     listCities.add(city9);
     listCities.add(city10);
     listCities.add(city11);
+
+    listCities.add(city12);
+    listCities.add(city13);
+    listCities.add(city14);
+    listCities.add(city15);
+    listCities.add(city16);
+    listCities.add(city17);
+    listCities.add(city18);
+    listCities.add(city20);
+
+    listCities.add(city21);
+    listCities.add(city22);
+    listCities.add(city23);
+    listCities.add(city24);
+    listCities.add(city25);
+    listCities.add(city26);
+
+    listCities.add(city27);
 
     return listCities;
   }
