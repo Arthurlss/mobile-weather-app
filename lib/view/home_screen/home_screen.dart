@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:my_weather/controller/weather_controller.dart';
 import 'package:my_weather/view/home_screen/widgets/header_home_screen.dart';
 import 'package:my_weather/view/home_screen/widgets/next_forecast_widget.dart';
 import 'package:my_weather/view/home_screen/widgets/today_weather_widget.dart';
@@ -12,6 +13,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  WeatherController _weatherController = WeatherController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _weatherController.getWeatherByCity("Maceio,AL", context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
