@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:my_weather/controller/weather_controller.dart';
+import 'package:my_weather/utils/utils.dart';
 
 class HeaderHomeScreen extends StatefulWidget {
   @override
@@ -7,7 +9,9 @@ class HeaderHomeScreen extends StatefulWidget {
 }
 
 class _HeaderHomeScreenState extends State<HeaderHomeScreen> {
-  List list = ["Joao", "maria", "jose"];
+  List list = Utils.getListCities();
+
+  var city = "Maceio,AL";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +26,7 @@ class _HeaderHomeScreenState extends State<HeaderHomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 0.4,
+                width: MediaQuery.of(context).size.width * 0.5,
                 decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(20)),
@@ -45,16 +49,27 @@ class _HeaderHomeScreenState extends State<HeaderHomeScreen> {
                         color: HexColor('#424242'),
                       ),
                     ), // Not necessary for Option 1
-                    value: "Joao",
-                    onChanged: (newValue) {},
+                    value: city,
+                    onChanged: (newValue) async {
+                      setState(() {
+                        city = newValue;
+                      });
+
+                      WeatherController _weatherController =
+                          WeatherController();
+
+                      await _weatherController.getWeatherByCity(city, context);
+                    },
                     items: list.map((location) {
                       return DropdownMenuItem(
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Icon(
                               Icons.location_on,
                               color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 2,
                             ),
                             new Text(location,
                                 style: TextStyle(

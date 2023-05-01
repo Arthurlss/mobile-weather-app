@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:my_weather/provider/weather_provider.dart';
+import 'package:my_weather/utils/utils.dart';
 import 'package:provider/provider.dart';
 
 class NextForecastWidget extends StatefulWidget {
@@ -13,6 +14,7 @@ class _NextForecastWidgetState extends State<NextForecastWidget> {
   Widget build(BuildContext context) {
     return Consumer<WeatherProvider>(
       builder: (context, _weatherProvider, _) {
+        var _weather = _weatherProvider.data.data["results"];
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -46,19 +48,19 @@ class _NextForecastWidgetState extends State<NextForecastWidget> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        getOtherDayWeather(),
+                        getOtherDayWeather(_weather["forecast"][1]),
                         SizedBox(
                           height: 5,
                         ),
-                        getOtherDayWeather(),
+                        getOtherDayWeather(_weather["forecast"][2]),
                         SizedBox(
                           height: 5,
                         ),
-                        getOtherDayWeather(),
+                        getOtherDayWeather(_weather["forecast"][3]),
                         SizedBox(
                           height: 5,
                         ),
-                        getOtherDayWeather(),
+                        getOtherDayWeather(_weather["forecast"][4]),
                       ],
                     ),
                     SizedBox(
@@ -67,7 +69,7 @@ class _NextForecastWidgetState extends State<NextForecastWidget> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                    color: HexColor("#0c3888"),
+                    color: HexColor(_weatherProvider.secondColor),
                     borderRadius: BorderRadius.circular(20)),
               ),
             ],
@@ -77,15 +79,20 @@ class _NextForecastWidgetState extends State<NextForecastWidget> {
     );
   }
 
-  Widget getOtherDayWeather() {
+  Widget getOtherDayWeather(dataDay) {
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(
-            "Monday",
-            style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),
+          Container(
+            width: 120,
+            child: Text(
+              Utils.getDayString(dataDay["weekday"]),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 20),
+            ),
           ),
           SizedBox(
             height: 22,
@@ -95,12 +102,12 @@ class _NextForecastWidgetState extends State<NextForecastWidget> {
             height: 22,
           ),
           Text(
-            "30°C",
+            "${dataDay["max"].toString()}°C",
             style: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),
           ),
           Text(
-            "21°C",
+            "${dataDay["min"].toString()}°C",
             style: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 20),
           ),

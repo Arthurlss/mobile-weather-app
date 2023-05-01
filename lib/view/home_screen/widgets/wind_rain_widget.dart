@@ -13,6 +13,7 @@ class _WindRainWidgetState extends State<WindRainWidget> {
   Widget build(BuildContext context) {
     return Consumer<WeatherProvider>(
       builder: (context, _weatherProvider, _) {
+        var _weather = _weatherProvider.data.data["results"];
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -36,7 +37,7 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                           width: 4,
                         ),
                         Text(
-                          "6%",
+                          "${_weather["cloudiness"].toString()}%",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -54,7 +55,7 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                           width: 4,
                         ),
                         Text(
-                          "6%",
+                          "${_weather["humidity"].toString()}%",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -72,7 +73,7 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                           width: 4,
                         ),
                         Text(
-                          "6%",
+                          _weather["wind_speedy"],
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -83,7 +84,7 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                    color: HexColor("#0c3888"),
+                    color: HexColor(_weatherProvider.secondColor),
                     borderRadius: BorderRadius.circular(20)),
               ),
             ],
