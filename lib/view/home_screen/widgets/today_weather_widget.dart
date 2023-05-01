@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:my_weather/provider/weather_provider.dart';
+import 'package:my_weather/utils/utils.dart';
 import 'package:provider/provider.dart';
 
 class TodayWeatherWidget extends StatefulWidget {
@@ -13,6 +14,7 @@ class _TodayWeatherWidgetState extends State<TodayWeatherWidget> {
   Widget build(BuildContext context) {
     return Consumer<WeatherProvider>(
       builder: (context, _weatherProvider, _) {
+        var _weather = _weatherProvider.data.data["results"];
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -36,7 +38,7 @@ class _TodayWeatherWidgetState extends State<TodayWeatherWidget> {
                               fontSize: 25),
                         ),
                         Text(
-                          "Mar,9",
+                          Utils.getDataFormated(),
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -45,15 +47,44 @@ class _TodayWeatherWidgetState extends State<TodayWeatherWidget> {
                       ],
                     ),
                     SizedBox(
-                      height: 35,
+                      height: 20,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        getDayWeather(),
-                        getDayWeather(),
-                        getDayWeather(),
-                        getDayWeather(),
+                        Text(
+                          "Sunrise ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                        Text(
+                          _weather["sunrise"],
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Sunset ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                        Text(
+                          _weather["sunset"],
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -62,7 +93,7 @@ class _TodayWeatherWidgetState extends State<TodayWeatherWidget> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                    color: HexColor("#0c3888"),
+                    color: HexColor(_weatherProvider.secondColor),
                     borderRadius: BorderRadius.circular(20)),
               ),
             ],
