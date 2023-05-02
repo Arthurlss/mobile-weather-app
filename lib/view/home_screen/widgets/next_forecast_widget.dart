@@ -91,25 +91,25 @@ class _NextForecastWidgetState extends State<NextForecastWidget> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
-                  fontSize: 20),
+                  fontSize: 15),
             ),
           ),
           SizedBox(
             height: 22,
           ),
-          Container(width: 60, child: Image.asset("assets/nuvem.png")),
+          Container(width: 50, child: Image.asset("assets/nuvem.png")),
           SizedBox(
             height: 22,
           ),
           Text(
             "${dataDay["max"].toString()}°C",
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),
+                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 15),
           ),
           Text(
             "${dataDay["min"].toString()}°C",
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 20),
+                fontWeight: FontWeight.bold, color: Colors.grey, fontSize: 15),
           ),
         ],
       ),

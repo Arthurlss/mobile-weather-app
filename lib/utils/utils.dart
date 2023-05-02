@@ -19,7 +19,7 @@ class Utils {
       case "Sex":
         return "Friday";
         break;
-      case "Sab":
+      case "Sáb":
         return "Saturday";
         break;
 
