@@ -37,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
               child: _weatherProvider.data == null
                   ? Container(
                       child: Center(
-                        child: CircularProgressIndicator(),
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
                       ),
                     )
                   : SingleChildScrollView(

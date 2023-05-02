@@ -57,14 +57,14 @@ class _TodayWeatherWidgetState extends State<TodayWeatherWidget> {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 15),
                         ),
                         Text(
                           _weather["sunrise"],
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 15),
                         ),
                       ],
                     ),
@@ -76,14 +76,14 @@ class _TodayWeatherWidgetState extends State<TodayWeatherWidget> {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 15),
                         ),
                         Text(
                           _weather["sunset"],
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 15),
                         ),
                       ],
                     ),

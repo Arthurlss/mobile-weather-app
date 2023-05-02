@@ -30,7 +30,7 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                     Row(
                       children: [
                         Container(
-                          height: 30,
+                          height: 20,
                           child: Image.asset("assets/chuva_branca.png"),
                         ),
                         SizedBox(
@@ -41,14 +41,14 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 15),
                         )
                       ],
                     ),
                     Row(
                       children: [
                         Container(
-                          height: 30,
+                          height: 20,
                           child: Image.asset("assets/termometro.png"),
                         ),
                         SizedBox(
@@ -59,14 +59,14 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 15),
                         )
                       ],
                     ),
                     Row(
                       children: [
                         Container(
-                          height: 30,
+                          height: 20,
                           child: Image.asset("assets/vento.png"),
                         ),
                         SizedBox(
@@ -77,7 +77,7 @@ class _WindRainWidgetState extends State<WindRainWidget> {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 15),
                         )
                       ],
                     ),
