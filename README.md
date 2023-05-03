@@ -48,4 +48,4 @@ Comentários:
 
 
 Instalação
-Somente baixar o projeto, criar o apk com o código "flutter build apk" e instalar o apk no celular.
+Somente fazer clone da branch master do reposítorio e usar o projeto.
